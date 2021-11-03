@@ -1,7 +1,7 @@
-import classes from "./Main.module.css";
+import classes from "src/components/Main/Main.module.css";
 
-import { Links } from "../components/Links";
-import { Headline } from "../components/Headline";
+import { Links } from "src/components/Links";
+import { Headline } from "src/components/Headline";
 
 export const Main = (props) => {
   const { page } = props;
