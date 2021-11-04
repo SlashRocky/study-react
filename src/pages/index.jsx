@@ -4,13 +4,23 @@ import classes from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
+import { useEffect } from "react";
 import { useCallback } from "react";
-
 
 export default function Home() {
   const clickHandler = useCallback((e) => {
     console.log(e.target);
     e.preventDefault();
+  }, []);
+
+  useEffect(() => {
+    console.log("マウント時");
+    document.body.style.backgroundColor = "lightblue";
+
+    return () => {
+      console.log("アンマウント時");
+      document.body.style.backgroundColor = "";
+    }
   }, []);
 
   return (
