@@ -4,24 +4,26 @@ import classes from "src/styles/Home.module.css";
 import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 import { Header } from "src/components/Header";
-import { useEffect } from "react";
-import { useCallback } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const clickHandler = useCallback((e) => {
-    console.log(e.target);
-    e.preventDefault();
-  }, []);
+
+  const [count, setCount] = useState(1);
+
+  const clickHandler = (e) => {
+    setCount(prevCount => prevCount + 1);
+    setCount(prevCount => prevCount + 1);
+  };
 
   useEffect(() => {
-    console.log("マウント時");
     document.body.style.backgroundColor = "lightblue";
 
     return () => {
-      console.log("アンマウント時");
       document.body.style.backgroundColor = "";
     }
   }, []);
+
+  console.log(count);
 
   return (
     <div className={classes.container}>
@@ -31,6 +33,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      <h1>{count}</h1>
       <button onClick={clickHandler}>ボタン</button>
       <Main page="index" />
       <Footer />
