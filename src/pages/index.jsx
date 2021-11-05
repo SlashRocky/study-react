@@ -9,12 +9,28 @@ import { useCallback, useEffect, useState } from "react";
 export default function Home() {
 
   const [count, setCount] = useState(1);
+  const [text, setText] = useState("");
+  const [isShow, setIsShow] = useState(true);
 
   const clickHandler = useCallback(() => {
     if(count < 10) {
       setCount(count => count + 1);
     }
+    console.log(count);
   }, [count]);
+
+  const changeHandler = useCallback((e) => {
+    if(e.target.value.length > 5) {
+      alert("5文字以内にしてください");
+      return;
+    }
+    setText(e.target.value);
+    console.log(text);
+  }, [text]);
+
+  const displayHandler = useCallback(() => {
+    setIsShow((isShow) => !isShow);
+  }, []);
 
   useEffect(() => {
     document.body.style.backgroundColor = "lightblue";
@@ -32,8 +48,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <h1>{count}</h1>
+      { isShow ? <h1>{count}</h1> : null }
       <button onClick={clickHandler}>ボタン</button>
+      <button onClick={displayHandler}>{isShow ? "非表示" : "表示"}</button>
+      <br />
+      <br />
+      <input
+        type="text"
+        value={text}
+        onChange={changeHandler}
+      />
       <Main page="index" />
       <Footer />
     </div>
