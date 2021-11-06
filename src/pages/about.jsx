@@ -5,9 +5,7 @@ import { Header } from "src/components/Header";
 import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 
-export default function About(props) {
-  const { doubleCount, isShow, clickHandler, displayHandler, text, array, changeHandler, addHandler } = props;
-
+const About = (props) => {
   return (
     <div className={classes.container}>
       <Head>
@@ -16,23 +14,23 @@ export default function About(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      { isShow ? <h1>{doubleCount}</h1> : null }
-      <button onClick={clickHandler}>ボタン</button>
-      <button onClick={displayHandler}>{isShow ? "非表示" : "表示"}</button>
+      { props.isShow ? <h1>{props.doubleCount}</h1> : null }
+      <button onClick={props.clickHandler}>ボタン</button>
+      <button onClick={props.displayHandler}>{props.isShow ? "非表示" : "表示"}</button>
       <br />
       <br />
 
       <input
         type="text"
-        value={text}
-        onChange={changeHandler}
+        value={props.text}
+        onChange={props.changeHandler}
       />
       <br />
-      <button onClick={addHandler}>追加</button>
+      <button onClick={props.addHandler}>追加</button>
       <ul>
         {
-          array &&
-          array.map((item) => {
+          props.array &&
+          props.array.map((item) => {
             return(
               <li key={item}>
                 {item}
@@ -46,3 +44,5 @@ export default function About(props) {
     </div>
   );
 }
+
+export default About;
