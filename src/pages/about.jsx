@@ -4,14 +4,9 @@ import classes from "src/styles/Home.module.css";
 import { Header } from "src/components/Header";
 import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
-import { useBackgroundColor } from "src/hooks/useBackgroundColor";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
 
-export default function About() {
-  const {count, isShow, clickHandler, displayHandler} = useCounter();
-  const {text, array, changeHandler, addHandler} = useInputArray();
-  useBackgroundColor();
+export default function About(props) {
+  const { count, isShow, clickHandler, displayHandler, text, array, changeHandler, addHandler } = props;
 
   return (
     <div className={classes.container}>
@@ -21,30 +16,31 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <div>
-        { isShow ? <h1>{count}</h1> : null }
-        <button onClick={clickHandler}>ボタン</button>
-        <button onClick={displayHandler}>{isShow ? "非表示" : "表示"}</button>
-        <br />
-        <br />
+      { isShow ? <h1>{count}</h1> : null }
+      <button onClick={clickHandler}>ボタン</button>
+      <button onClick={displayHandler}>{isShow ? "非表示" : "表示"}</button>
+      <br />
+      <br />
 
-        <input
-          type="text"
-          value={text}
-          onChange={changeHandler}
-        />
-        <br />
-        <button onClick={addHandler}>追加</button>
-        <ul>
-          {array.map((item) => {
+      <input
+        type="text"
+        value={text}
+        onChange={changeHandler}
+      />
+      <br />
+      <button onClick={addHandler}>追加</button>
+      <ul>
+        {
+          array &&
+          array.map((item) => {
             return(
               <li key={item}>
                 {item}
               </li>
             );
-          })}
-        </ul>
-      </div>
+          })
+        }
+      </ul>
       <Main page="about" />
       <Footer />
     </div>
