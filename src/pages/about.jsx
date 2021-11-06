@@ -6,7 +6,7 @@ import { Footer } from "src/components/Footer";
 import { Main } from "src/components/Main";
 
 export default function About(props) {
-  const { count, isShow, clickHandler, displayHandler, text, array, changeHandler, addHandler } = props;
+  const { doubleCount, isShow, clickHandler, displayHandler, text, array, changeHandler, addHandler } = props;
 
   return (
     <div className={classes.container}>
@@ -16,7 +16,7 @@ export default function About(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      { isShow ? <h1>{count}</h1> : null }
+      { isShow ? <h1>{doubleCount}</h1> : null }
       <button onClick={clickHandler}>ボタン</button>
       <button onClick={displayHandler}>{isShow ? "非表示" : "表示"}</button>
       <br />
