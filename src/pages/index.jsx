@@ -14,7 +14,7 @@ export default function Home() {
 
   const clickHandler = useCallback(() => {
     if(count < 10) {
-      setCount(count => count + 1);
+      setCount(prevCount => prevCount + 1);
     }
     console.log(count);
   }, [count]);
@@ -29,7 +29,7 @@ export default function Home() {
   }, [text]);
 
   const displayHandler = useCallback(() => {
-    setIsShow((isShow) => !isShow);
+    setIsShow((prevIsShow) => !prevIsShow);
   }, []);
 
   useEffect(() => {
