@@ -1,22 +1,10 @@
-import { useState, useCallback, useEffect } from "react";
 import Head from "next/head";
 
 import classes from "src/styles/Home.module.css";
 import { Header } from "src/components/Header";
+import { Posts } from "src/components/Posts/";
 
-const Home = (props) => {
-  const [posts, setPosts] = useState([]);
-
-  const getPosts = useCallback(async () => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-    const json =  await res.json();
-    setPosts(json);
-  }, []);
-
-  useEffect(() => {
-    getPosts();
-  }, [getPosts])
-
+const Home = () => {
   return (
     <div className={classes.container}>
       <Head>
@@ -25,21 +13,7 @@ const Home = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <ol>
-        {
-          posts.length > 0 ?
-          (
-            posts.map((post) => {
-              return(
-                <li key={post.id}>
-                  <h2>{post.title}</h2>
-                  <p>{post.body}</p>
-                </li>
-              );
-            })
-          ) : null
-        }
-      </ol>
+      <Posts />
     </div>
   );
 }
