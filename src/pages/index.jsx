@@ -1,11 +1,22 @@
+import { useState, useCallback, useEffect } from "react";
 import Head from "next/head";
-import classes from "src/styles/Home.module.css";
 
+import classes from "src/styles/Home.module.css";
 import { Header } from "src/components/Header";
-import { Footer } from "src/components/Footer";
-import { Main } from "src/components/Main";
 
 const Home = (props) => {
+  const [posts, setPosts] = useState([]);
+
+  const getPosts = useCallback(async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const json =  await res.json();
+    setPosts(json);
+  }, []);
+
+  useEffect(() => {
+    getPosts();
+  }, [getPosts])
+
   return (
     <div className={classes.container}>
       <Head>
@@ -14,32 +25,21 @@ const Home = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      { props.isShow ? <h1>{props.count}</h1> : null }
-      <button onClick={props.clickHandler}>ボタン</button>
-      <button onClick={props.displayHandler}>{props.isShow ? "非表示" : "表示"}</button>
-      <br />
-      <br />
-
-      <input
-        type="text"
-        value={props.text}
-        onChange={props.changeHandler}
-      />
-      <br />
-      <button onClick={props.addHandler}>追加</button>
-      <ul>
+      <ol>
         {
-          props.array &&
-          props.array.map((item) => {
-          return(
-            <li key={item}>
-              {item}
-            </li>
-          );
-        })}
-      </ul>
-      <Main page="index" />
-      <Footer />
+          posts.length > 0 ?
+          (
+            posts.map((post) => {
+              return(
+                <li key={post.id}>
+                  <h2>{post.title}</h2>
+                  <p>{post.body}</p>
+                </li>
+              );
+            })
+          ) : null
+        }
+      </ol>
     </div>
   );
 }
