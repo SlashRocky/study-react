@@ -17,14 +17,15 @@ export const Header = () => {
   return (
     <header className={classes.header}>
       {
-        NAV_ITEMS &&
-        NAV_ITEMS.map((nav_item) => {
-          return(
-            <Link key={nav_item.href} href={nav_item.href}>
-              <a className={classes.anchor}>{nav_item.label}</a>
-            </Link>
-          );
-        })
+        NAV_ITEMS.length > 0 ? (
+          NAV_ITEMS.map((nav_item) => {
+            return(
+              <Link key={nav_item.href} href={nav_item.href}>
+                <a className={classes.anchor}>{nav_item.label}</a>
+              </Link>
+            );
+          })
+        ) : null
       }
     </header>
   );

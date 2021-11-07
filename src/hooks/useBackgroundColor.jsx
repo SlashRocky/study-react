@@ -1,10 +1,8 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import { useRouter } from "next/router";
-import {useEffect} from "react";
 
 export const useBackgroundColor = () => {
   const router = useRouter();
-  console.log(router);
 
   const bgColor = useMemo(() => {
     switch(router.pathname) {

@@ -29,14 +29,15 @@ const About = (props) => {
       <button onClick={props.addHandler}>追加</button>
       <ul>
         {
-          props.array &&
-          props.array.map((item) => {
-            return(
-              <li key={item}>
-                {item}
-              </li>
-            );
-          })
+          props.array.length > 0 ? (
+            props.array.map((item) => {
+              return(
+                <li key={item}>
+                  {item}
+                </li>
+              );
+            })
+          ) : null
         }
       </ul>
       <Main page="about" />
