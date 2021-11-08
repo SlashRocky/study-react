@@ -27,7 +27,6 @@ export const Posts = () => {
                   <h2>{post.title}</h2>
                 </a>
               </Link>
-              <p>{post.body}</p>
             </li>
           );
         })
