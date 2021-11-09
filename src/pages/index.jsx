@@ -2,10 +2,8 @@ import Head from "next/head";
 import classes from "src/styles/Home.module.css";
 
 import { Header } from "src/components/Header";
-import { Footer } from "src/components/Footer";
-import { Main } from "src/components/Main";
 
-const About = (props) => {
+const Index = () => {
   return (
     <div className={classes.container}>
       <Head>
@@ -14,36 +12,10 @@ const About = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      { props.isShow ? <h1>{props.doubleCount}</h1> : null }
-      <button onClick={props.clickHandler}>ボタン</button>
-      <button onClick={props.displayHandler}>{props.isShow ? "非表示" : "表示"}</button>
-      <br />
-      <br />
-
-      <input
-        type="text"
-        value={props.text}
-        onChange={props.changeHandler}
-      />
-      <br />
-      <button onClick={props.addHandler}>追加</button>
-      <ul>
-        {
-          props.array.length > 0 ? (
-            props.array.map((item) => {
-              return(
-                <li key={item}>
-                  {item}
-                </li>
-              );
-            })
-          ) : null
-        }
-      </ul>
-      <Main page="about" />
-      <Footer />
+      <h1>Next.jsで学ぶReact講座</h1>
+      <p>JSONPlaceholderのAPIを色々叩いてみるよ！</p>
     </div>
   );
 }
 
-export default About;
+export default Index;
