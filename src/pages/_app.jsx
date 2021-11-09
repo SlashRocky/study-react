@@ -1,15 +1,7 @@
 import 'src/styles/globals.css';
 
-import { useBackgroundColor } from "src/hooks/useBackgroundColor";
-import { useCounter } from "src/hooks/useCounter";
-import { useInputArray } from "src/hooks/useInputArray";
-
 const MyApp = ({ Component, pageProps }) => {
-  const counter = useCounter();
-  const inputArray = useInputArray();
-  useBackgroundColor();
-
-  return <Component {...pageProps} {...counter} {...inputArray} />
+  return <Component {...pageProps} />
 }
 
 export default MyApp
