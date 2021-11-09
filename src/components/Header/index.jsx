@@ -4,8 +4,8 @@ import classes from "src/components/Header/Header.module.css";
 
 const NAV_ITEMS = [
   {
-    href: "/",
-    label: "Index"
+    href: "/posts",
+    label: "Posts"
   },
   {
     href: "/about",
