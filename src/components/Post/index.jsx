@@ -1,11 +1,14 @@
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import { usePost } from "src/hooks/usePost";
 import { UserByUserId } from "src/components/User/UserByUserId";
 import { CommentsByPostId } from "src/components/Comments/CommentsByPostId";
 
 export const Post = () => {
-  const { data, error, isLoading } = usePost();
+  const router = useRouter();
+
+  const { data, error, isLoading } = usePost(router.query.id);
 
   if(isLoading) {
     return <div>ローディング中です。</div>;
