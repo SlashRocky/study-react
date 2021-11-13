@@ -15,22 +15,25 @@ const useFetchArray = (endpoint) => {
 
 const BASE_ENDPOINT = "https://jsonplaceholder.typicode.com";
 
+// posts
 export const usePosts = () => {
   return useFetchArray(`${BASE_ENDPOINT}/posts`);
 }
 
+export const usePostsByUserId = (id) => {
+  return useFetchArray(id ? `${BASE_ENDPOINT}/posts?userId=${id}` : null);
+}
+
+// users
 export const useUsers = () => {
   return useFetchArray(`${BASE_ENDPOINT}/users`);
 }
 
+// comments
 export const useComments = () => {
   return useFetchArray(`${BASE_ENDPOINT}/comments`);
 }
 
 export const useCommentsByPostId = (id) => {
   return useFetchArray(id ? `${BASE_ENDPOINT}/comments?postId=${id}` : null);
-}
-
-export const usePostsByUserId = (id) => {
-  return useFetchArray(id ? `${BASE_ENDPOINT}/posts?userId=${id}` : null);
 }
