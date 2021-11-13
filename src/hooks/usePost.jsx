@@ -6,7 +6,7 @@ import { fetcher } from "src/utils/fetcher";
 export const usePost = () => {
   const router = useRouter();
 
-  const { data: post, error: postError } = useSWR(
+  const { data, error } = useSWR(
     (
       router.query.id ?
       `https://jsonplaceholder.typicode.com/posts/${router.query.id}`
@@ -15,19 +15,9 @@ export const usePost = () => {
     , fetcher
   );
 
-  const { data: user, error: userError } = useSWR(
-    (
-      post?.userId ?
-      `https://jsonplaceholder.typicode.com/users/${post.userId}`
-      : null
-    )
-    , fetcher
-  );
-
   return {
-    post,
-    user,
-    error: postError || userError,
-    isLoading: !user && !userError
+    data,
+    error,
+    isLoading: !data && !error
   }
 }
