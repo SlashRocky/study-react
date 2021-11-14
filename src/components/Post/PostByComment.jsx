@@ -27,10 +27,10 @@ export const PostByComment = (props) => {
 
   return(
     <div>
-      <h2>元の記事</h2>
+      <h2 className="text-xl font-bold mt-10">元の記事</h2>
       <p>
         <Link href={`/posts/${data.id}`}>
-          <a>{data.title}</a>
+          <a className="text-lg hover:text-blue-500">{data.title}</a>
         </Link>
       </p>
     </div>

@@ -21,7 +21,7 @@ const NAV_ITEMS = [
 
 export const Header = () => {
   return (
-    <header className="flex justify-center items-center border-b w-full h-24">
+    <header className="flex justify-center items-center border-b w-full h-24 mb-4">
       {
         NAV_ITEMS.length > 0 ? (
           NAV_ITEMS.map((nav_item) => {
