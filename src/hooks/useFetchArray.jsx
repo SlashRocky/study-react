@@ -1,9 +1,9 @@
-import useSWR from "swr";
+import useSWRImmutable from "swr/immutable";
 
 import { fetcher } from "src/utils/fetcher";
 
 const useFetchArray = (endpoint) => {
-  const { data, error } = useSWR(endpoint, fetcher);
+  const { data, error } = useSWRImmutable(endpoint, fetcher);
 
   return {
     data,
