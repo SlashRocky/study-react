@@ -1,11 +1,12 @@
 import Head from "next/head";
 import { SWRConfig } from 'swr';
 
+import { BASE_ENDPOINT } from 'src/utils/const';
 import { Header } from "src/components/Header";
 import { Comments as CommentsComponent } from "src/components/Comments"
 
 export const getStaticProps = async () => {
-  const COMMENTS_API_URL = "https://jsonplaceholder.typicode.com/comments";
+  const COMMENTS_API_URL = `${BASE_ENDPOINT}/comments`;
   console.log("SGのページ");
   const comments = await fetch(COMMENTS_API_URL);
   const commentsData = await comments.json();

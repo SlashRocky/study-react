@@ -1,5 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 
+import { BASE_ENDPOINT } from 'src/utils/const';
 import { fetcher } from "src/utils/fetcher";
 
 const useFetchArray = (endpoint) => {
@@ -12,8 +13,6 @@ const useFetchArray = (endpoint) => {
     isEmpty: data && data.length === 0
   };
 }
-
-const BASE_ENDPOINT = "https://jsonplaceholder.typicode.com";
 
 // posts
 export const usePosts = () => {

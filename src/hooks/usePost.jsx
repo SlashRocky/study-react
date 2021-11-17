@@ -1,5 +1,6 @@
 import useSWRImmutable from "swr/immutable";
 
+import { BASE_ENDPOINT } from 'src/utils/const';
 import { fetcher } from "src/utils/fetcher";
 
 export const usePost = (id) => {
@@ -7,7 +8,7 @@ export const usePost = (id) => {
   const { data, error } = useSWRImmutable(
     (
       id ?
-      `https://jsonplaceholder.typicode.com/posts/${id}`
+      `${BASE_ENDPOINT}/posts/${id}`
       : null
     )
     , fetcher

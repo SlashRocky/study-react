@@ -1,12 +1,13 @@
 import useSWRImmutable from "swr/immutable";
 
+import { BASE_ENDPOINT } from 'src/utils/const';
 import { fetcher } from "src/utils/fetcher";
 
 export const UserByUserId = (props) => {
   const { data, error } = useSWRImmutable(
     (
       props.id ?
-      `https://jsonplaceholder.typicode.com/users/${props.id}`
+      `${BASE_ENDPOINT}/users/${props.id}`
       : null
     )
     , fetcher

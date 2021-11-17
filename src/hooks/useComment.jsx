@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import useSWRImmutable from 'swr/immutable';
 
+import { BASE_ENDPOINT } from 'src/utils/const';
 import { fetcher } from "src/utils/fetcher";
 
 export const useComment = () => {
@@ -9,7 +10,7 @@ export const useComment = () => {
   const { data: comment, error: error } = useSWRImmutable(
     (
       router.query.id ?
-      `https://jsonplaceholder.typicode.com/comments/${router.query.id }`
+      `${BASE_ENDPOINT}/comments/${router.query.id }`
       : null
     )
     , fetcher

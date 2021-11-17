@@ -1,11 +1,12 @@
 import Head from "next/head";
-
-import { Header } from "src/components/Header";
-import { Users as UsersComponent } from "src/components/Users/";
 import { SWRConfig } from "swr";
 
+import { BASE_ENDPOINT } from 'src/utils/const';
+import { Header } from "src/components/Header";
+import { Users as UsersComponent } from "src/components/Users/";
+
 export const getServerSideProps = async () => {
-  const USERS_API_URL = "https://jsonplaceholder.typicode.com/users";
+  const USERS_API_URL = `${BASE_ENDPOINT}/users`;
   const users = await fetch(USERS_API_URL);
   const usersData = await users.json();
 
