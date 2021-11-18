@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { usePosts } from "src/hooks/useFetchArray";
+
+import { useFetchArray } from "src/hooks/useFetchArray";
+import { BASE_ENDPOINT } from 'src/utils/const';
 
 export const PostList = () => {
-  const { data, error, isLoading, isEmpty } = usePosts();
+  const { data, error, isLoading, isEmpty } = useFetchArray(`${BASE_ENDPOINT}/posts`);
 
   if (isLoading) {
     return <div>ローディング中です。</div>;

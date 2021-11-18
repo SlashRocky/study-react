@@ -1,9 +1,10 @@
 import Link from "next/link";
 
-import { usePostsByUserId } from "src/hooks/useFetchArray";
+import { useFetchArray } from "src/hooks/useFetchArray";
+import { BASE_ENDPOINT } from 'src/utils/const';
 
 export const PostsByUserId = (props) => {
-  const { data, error, isLoading, isEmpty } = usePostsByUserId(props.userId);
+  const { data, error, isLoading, isEmpty } = useFetchArray(props.userId ? `${BASE_ENDPOINT}/posts?userId=${props.userId}` : null);
 
   if (isLoading)  {
     return(

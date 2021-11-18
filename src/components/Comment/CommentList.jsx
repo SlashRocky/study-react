@@ -1,9 +1,10 @@
 import Link from "next/link";
 
-import { useComments } from "src/hooks/useFetchArray";
+import { useFetchArray } from "src/hooks/useFetchArray";
+import { BASE_ENDPOINT } from 'src/utils/const';
 
 export const CommentList = () => {
-  const { data, error, isLoading, isEmpty } = useComments();
+  const { data, error, isLoading, isEmpty } = useFetchArray(`${BASE_ENDPOINT}/comments`);
 
   if (isLoading) {
     return(
