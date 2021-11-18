@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import { usePost } from "src/hooks/usePost";
 import { UserByUserId } from "src/components/User/UserByUserId";
-import { CommentsByPostId } from "src/components/Comments/CommentsByPostId";
+import { CommentListByPostId } from "src/components/Comment/CommentListByPostId";
 
 export const Post = () => {
   const router = useRouter();
@@ -30,7 +30,7 @@ export const Post = () => {
       <p className="text-xl text-gray-500 mt-2">{data?.body}</p>
       <h2 className="text-xl font-bold mt-10">コメント一覧</h2>
       <div className="mt-2">
-        <CommentsByPostId id={data.id} />
+        <CommentListByPostId id={data.id} />
       </div>
     </div>
   );

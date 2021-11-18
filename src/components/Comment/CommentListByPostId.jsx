@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useFetchArray } from "src/hooks/useFetchArray";
 import { BASE_ENDPOINT } from 'src/utils/const';
 
-export const CommentsByPostId  = (props) => {
+export const CommentListByPostId  = (props) => {
   const {
     data,
     error,
