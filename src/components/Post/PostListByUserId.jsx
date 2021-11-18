@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useFetchArray } from "src/hooks/useFetchArray";
 import { BASE_ENDPOINT } from 'src/utils/const';
 
-export const PostsByUserId = (props) => {
+export const PostListByUserId = (props) => {
   const { data, error, isLoading, isEmpty } = useFetchArray(props.userId ? `${BASE_ENDPOINT}/posts?userId=${props.userId}` : null);
 
   if (isLoading)  {

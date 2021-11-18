@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { useUser } from "src/hooks/useUser";
-import { PostsByUserId } from "src/components/Posts/PostsByUserId";
+import { PostListByUserId } from "src/components/Post/PostListByUserId";
 
 export const User = () => {
   const { user, error, isLoading } = useUser();
@@ -37,7 +37,7 @@ export const User = () => {
       </ul>
       <h2 className="text-xl font-bold mt-10">投稿</h2>
       <div className="mt-2">
-        <PostsByUserId userId={user.id} />
+        <PostListByUserId userId={user.id} />
       </div>
     </div>
   );
