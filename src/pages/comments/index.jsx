@@ -3,7 +3,7 @@ import { SWRConfig } from 'swr';
 
 import { BASE_ENDPOINT } from 'src/utils/const';
 import { Header } from "src/components/Header";
-import { Comments as CommentsComponent } from "src/components/Comments"
+import { CommentList } from "src/components/Comment/CommentList"
 
 export const getStaticProps = async () => {
   const COMMENTS_API_URL = `${BASE_ENDPOINT}/comments`;
@@ -33,7 +33,7 @@ const Comments = (props) => {
       </Head>
       <SWRConfig value={{fallback}}>
         <Header />
-        <CommentsComponent />
+        <CommentList />
       </SWRConfig>
     </div>
   );

@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 import { useComments } from "src/hooks/useFetchArray";
 
-export const Comments = () => {
+export const CommentList = () => {
   const { data, error, isLoading, isEmpty } = useComments();
 
   if (isLoading) {
