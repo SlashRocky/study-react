@@ -5,7 +5,7 @@ import { Header } from "src/components/Header";
 import { Comment } from "src/components/Comment"
 
 export const getStaticPaths = async () => {
-  const comments = await fetch(`${BASE_ENDPOINT}/comments?_limit=10`);
+  const comments = await fetch(`${BASE_ENDPOINT}/comments`);
   const commentsData = await comments.json();
   const paths = commentsData.map((comment) => ({
       params: { id: comment.id.toString() }
@@ -25,6 +25,7 @@ export const getStaticProps = async (ctx) => {
   if (!comment.ok) {
     return {
       notFound: true,
+      revalidate: 1,
     }
   }
 
@@ -35,7 +36,8 @@ export const getStaticProps = async (ctx) => {
       fallback: {
         [COMMENT_API_URL]: commentData
       }
-    }
+    },
+    revalidate: 10,
   }
 }
 
