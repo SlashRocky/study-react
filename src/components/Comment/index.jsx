@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 import { useComment } from "src/hooks/useComment";
-import { PostByComment } from "src/components/Post/PostByComment";
+import { PostTitleByComment } from "src/components/Post/PostTitleByComment";
 import { data } from "autoprefixer";
 
 export const Comment = () => {
@@ -31,7 +31,7 @@ export const Comment = () => {
       </div>
       <h1 className="text-3xl font-bold">{comment?.body}</h1>
       <div className="mt-2">
-        <PostByComment postId={comment.postId} />
+        <PostTitleByComment postId={comment.postId} />
       </div>
     </div>
   );

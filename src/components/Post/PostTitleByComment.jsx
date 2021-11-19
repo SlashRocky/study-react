@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useFetch } from "src/hooks/useFetch";
 import { BASE_ENDPOINT } from 'src/utils/const';
 
-export const PostByComment = (props) => {
+export const PostTitleByComment = (props) => {
 
   const { data, error, isLoading } = useFetch(
     props.postId ?
