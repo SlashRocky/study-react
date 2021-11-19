@@ -3,7 +3,7 @@ import useSWRImmutable from "swr/immutable";
 import { BASE_ENDPOINT } from 'src/utils/const';
 import { fetcher } from "src/utils/fetcher";
 
-export const UserByUserId = (props) => {
+export const UserNameByUserId = (props) => {
   const { data, error } = useSWRImmutable(
     (
       props.id ?
