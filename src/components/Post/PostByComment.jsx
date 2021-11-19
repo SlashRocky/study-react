@@ -1,11 +1,15 @@
-
 import Link from "next/link";
 
-import { usePost } from "src/hooks/usePost";
+import { useFetch } from "src/hooks/useFetch";
+import { BASE_ENDPOINT } from 'src/utils/const';
 
 export const PostByComment = (props) => {
 
-  const { data, error, isLoading, isEmpty } = usePost(props.postId);
+  const { data, error, isLoading } = useFetch(
+    props.postId ?
+    `${BASE_ENDPOINT}/posts/${props.postId}`
+    : null
+  );
 
   if (isLoading)  {
     return(
@@ -16,12 +20,6 @@ export const PostByComment = (props) => {
   if (error)  {
     return(
       <div>{error.message}</div>
-    );
-  }
-
-  if (isEmpty) {
-    return(
-      <div>データは空です。</div>
     );
   }
 

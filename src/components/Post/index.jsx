@@ -1,14 +1,19 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { usePost } from "src/hooks/usePost";
+import { useFetch } from "src/hooks/useFetch";
 import { UserByUserId } from "src/components/User/UserByUserId";
 import { CommentListByPostId } from "src/components/Comment/CommentListByPostId";
+import { BASE_ENDPOINT } from 'src/utils/const';
 
 export const Post = () => {
   const router = useRouter();
 
-  const { data, error, isLoading } = usePost(router.query.id);
+  const { data, error, isLoading } = useFetch(
+    router.query.id ?
+    `${BASE_ENDPOINT}/posts/${router.query.id}`
+    : null
+  );
 
   if(isLoading) {
     return <div>ローディング中です。</div>;
