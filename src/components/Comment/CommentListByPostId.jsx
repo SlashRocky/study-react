@@ -9,7 +9,7 @@ export const CommentListByPostId  = (props) => {
     error,
     isLoading,
     isEmpty
-  } = useFetchArray(props.id ? `${BASE_ENDPOINT}/comments?postId=${props.id}` : null);
+  } = useFetchArray(props.id ? `${BASE_ENDPOINT}/posts/${props.id}/comments` : null);
 
   if(isLoading) {
     return (
