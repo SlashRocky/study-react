@@ -3,7 +3,7 @@ import { SWRConfig } from "swr";
 
 import { BASE_ENDPOINT } from 'src/utils/const';
 import { Header } from "src/components/Header";
-import { Users as UsersComponent } from "src/components/Users/";
+import { UserList } from "src/components/Users/UserList";
 
 export const getServerSideProps = async () => {
   const USERS_API_URL = `${BASE_ENDPOINT}/users`;
@@ -31,7 +31,7 @@ const Users = (props) => {
       </Head>
       <SWRConfig value={{fallback}}>
         <Header />
-        <UsersComponent />
+        <UserList />
       </SWRConfig>
     </div>
   );

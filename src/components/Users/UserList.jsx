@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useFetchArray } from "src/hooks/useFetchArray";
 import { BASE_ENDPOINT } from 'src/utils/const';
 
-export const Users = () => {
+export const UserList = () => {
   const { data, error, isLoading, isEmpty } = useFetchArray(`${BASE_ENDPOINT}/users`);
 
   if (isLoading) {
