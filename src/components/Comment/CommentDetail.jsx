@@ -6,7 +6,7 @@ import { PostTitleByComment } from "src/components/Post/PostTitleByComment";
 import { data } from "autoprefixer";
 import { BASE_ENDPOINT } from 'src/utils/const';
 
-export const Comment = () => {
+export const CommentDetail = () => {
   const router = useRouter();
 
   const { data, error, isLoading } = useFetch(

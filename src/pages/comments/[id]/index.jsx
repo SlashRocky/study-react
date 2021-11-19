@@ -2,7 +2,7 @@ import { SWRConfig } from "swr";
 
 import { BASE_ENDPOINT } from 'src/utils/const';
 import { Header } from "src/components/Header";
-import { Comment } from "src/components/Comment"
+import { CommentDetail } from "src/components/Comment/CommentDetail"
 
 export const getStaticPaths = async () => {
   const comments = await fetch(`${BASE_ENDPOINT}/comments`);
@@ -48,7 +48,7 @@ const CommentId = (props) => {
     <div>
       <SWRConfig value={{fallback}}>
         <Header />
-        <Comment />
+        <CommentDetail />
       </SWRConfig>
     </div>
   );
