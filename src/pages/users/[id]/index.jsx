@@ -1,7 +1,6 @@
 import { SWRConfig } from "swr";
 
 import { BASE_ENDPOINT } from "src/utils/const";
-import { Header } from "src/components/Header";
 import { UserDetail } from "src/components/User/UserDetail";
 
 export const getServerSideProps = async (ctx) => {
@@ -32,7 +31,6 @@ const UserId = (props) => {
 
   return(
     <SWRConfig value={{ fallback }}>
-      <Header />
       <UserDetail />
     </SWRConfig>
   );

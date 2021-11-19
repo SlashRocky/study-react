@@ -2,7 +2,6 @@ import Head from "next/head";
 import { SWRConfig } from "swr";
 
 import { BASE_ENDPOINT } from 'src/utils/const';
-import { Header } from "src/components/Header";
 import { UserList } from "src/components/User/UserList";
 
 export const getServerSideProps = async () => {
@@ -30,7 +29,6 @@ const Users = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SWRConfig value={{fallback}}>
-        <Header />
         <UserList />
       </SWRConfig>
     </div>

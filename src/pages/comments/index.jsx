@@ -2,7 +2,6 @@ import Head from "next/head";
 import { SWRConfig } from 'swr';
 
 import { BASE_ENDPOINT } from 'src/utils/const';
-import { Header } from "src/components/Header";
 import { CommentList } from "src/components/Comment/CommentList"
 
 export const getStaticProps = async () => {
@@ -32,7 +31,6 @@ const Comments = (props) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SWRConfig value={{fallback}}>
-        <Header />
         <CommentList />
       </SWRConfig>
     </div>
