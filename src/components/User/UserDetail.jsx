@@ -5,7 +5,7 @@ import { useFetch } from "src/hooks/useFetch";
 import { PostListByUserId } from "src/components/Post/PostListByUserId";
 import { BASE_ENDPOINT } from 'src/utils/const';
 
-export const User = () => {
+export const UserDetail = () => {
   const router = useRouter();
 
   const { data, error, isLoading } = useFetch(
