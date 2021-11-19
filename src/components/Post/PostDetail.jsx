@@ -6,7 +6,7 @@ import { UserByUserId } from "src/components/User/UserByUserId";
 import { CommentListByPostId } from "src/components/Comment/CommentListByPostId";
 import { BASE_ENDPOINT } from 'src/utils/const';
 
-export const Post = () => {
+export const PostDetail = () => {
   const router = useRouter();
 
   const { data, error, isLoading } = useFetch(
